@@ -25,7 +25,7 @@ internal class UniversityUiLoaderService : IUniversityUiLoaderService
             universityQuery = universityQuery.Where(x => x.CountryName == countryName);
         
         if (name is not null)
-            universityQuery.Where(x => x.Name == name);
+            universityQuery = universityQuery.Where(x => x.Name == name);
 
         var universities = await universityQuery.ToListAsync(cancellationToken);
         return ConvertToResponseDto(universities);
